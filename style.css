@@ -1,0 +1,88 @@
+:root {
+  /* mobile view  */
+  --container-width: 100%;
+  --container-margin: 0px 0px 20rem 0px;
+  --card-width: 100%;
+  --show-elems-at-percent: 130%;
+  --max-update-frequency-ms: 200ms;
+}
+
+@media screen and (min-width: 800px) {
+  :root {
+    --container-width: 80%;
+    --container-margin: auto auto 20rem auto;
+    --card-width: 30%;
+    --show-elems-at-percent: 90%;
+    --max-update-frequency-ms: 50ms;
+  }
+}
+
+body {
+  font-family: Montserrat;
+
+  /* from developer.mozilla.org */
+  background: linear-gradient(
+      217deg,
+      rgba(255, 0, 0, 0.8),
+      rgba(255, 0, 0, 0) 70.71%
+    ),
+    linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+    linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+.container {
+  margin: var(--container-margin);
+  width: var(--container-width);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-self: center;
+  justify-content: center;
+}
+
+.card {
+  text-align: center;
+  background-color: #fff;
+  opacity: 0.7;
+
+  margin: 1rem;
+  padding: 1rem;
+  height: 12rem;
+  width: var(--card-width);
+  border-radius: 0.5rem;
+
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.float-from-below {
+  transform: translateY(50%);
+  opacity: 0;
+}
+
+.float-from-above {
+  transform: translateY(-50%);
+  opacity: 0;
+}
+
+.float-visible {
+  transform: translateY(0);
+  transition-duration: 0.4s;
+  transition-timing-function: ease;
+}
+
+.hover-enabled:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+  transition-duration: 0.2s;
+}
